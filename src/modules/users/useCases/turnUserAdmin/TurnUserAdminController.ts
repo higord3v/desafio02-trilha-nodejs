@@ -9,10 +9,10 @@ class TurnUserAdminController {
     // Complete aqui
     try {
       const { user_id } = request.params;
-      const { email, name, admin } = this.turnUserAdminUseCase.execute({
+      const user = this.turnUserAdminUseCase.execute({
         user_id,
       });
-      return response.status(200).json({ email, name, admin });
+      return response.status(200).json(user);
     } catch (error) {
       return response.status(404).json({ error: error.message });
     }
